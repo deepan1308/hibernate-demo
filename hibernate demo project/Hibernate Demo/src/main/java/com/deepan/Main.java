@@ -10,10 +10,10 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
 
-        Alien a = new Alien();
-       a.setAid(102);
-       a.setAname("varun");
-       a.setAtech("Computer science");
+//        Alien a = new Alien();
+//       a.setAid(103);
+//       a.setAname("tharun");
+//       a.setAtech("Electronics");
 
 //        Configuration config = new Configuration();
 //        config.addAnnotatedClass(com.deepan.Alien.class);
@@ -28,8 +28,9 @@ public class Main {
 
 
         Session session = factory.openSession();
-        Transaction transaction = session.beginTransaction();
-                session.persist(a);
-                transaction.commit();
+//        Transaction transaction = session.beginTransaction();
+               Alien a1= session.find(Alien.class,102);
+                System.out.println(a1);
+              //transaction.commit();
     }
 }
