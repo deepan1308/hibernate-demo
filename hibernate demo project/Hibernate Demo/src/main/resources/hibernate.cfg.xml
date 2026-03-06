@@ -14,5 +14,12 @@
         <property name="hibernate.connection.password">
             Deepan@1308
         </property>
+        
+        <property name="hibernate.hbm2ddl.auto">
+            update
+        </property>
+        <property name="hibernate.show.sql">
+            true
+        </property>
     </session-factory>
 </hibernate-configuration>

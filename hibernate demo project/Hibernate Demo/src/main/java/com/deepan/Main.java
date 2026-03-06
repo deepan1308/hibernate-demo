@@ -11,16 +11,20 @@ public class Main {
     public static void main(String[] args) {
 
         Alien a = new Alien();
-       a.setAid(101);
-       a.setAname("deepan");
+       a.setAid(102);
+       a.setAname("varun");
        a.setAtech("Computer science");
 
-        Configuration config = new Configuration();
+//        Configuration config = new Configuration();
+//        config.addAnnotatedClass(com.deepan.Alien.class);
+//        config.configure("hibernate.cfg.xml");
 
-        config.addAnnotatedClass(com.deepan.Alien.class);
+        // or
 
-        config.configure("hibernate.cfg.xml");
-        SessionFactory factory = config.buildSessionFactory();
+        SessionFactory factory = new Configuration()
+                .addAnnotatedClass(com.deepan.Alien.class)
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory();
 
 
         Session session = factory.openSession();
