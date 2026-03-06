@@ -1,7 +1,13 @@
 package com.deepan;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Alien {
 
+    @Id
     public int aid;
     public String aname;
     public String atech;

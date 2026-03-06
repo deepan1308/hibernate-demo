@@ -2,6 +2,7 @@ package com.deepan;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -15,9 +16,16 @@ public class Main {
        a.setAtech("Computer science");
 
         Configuration config = new Configuration();
-        config.configure();
+
+        config.addAnnotatedClass(com.deepan.Alien.class);
+
+        config.configure("hibernate.cfg.xml");
         SessionFactory factory = config.buildSessionFactory();
+
+
         Session session = factory.openSession();
-        session.persist(a);
+        Transaction transaction = session.beginTransaction();
+                session.persist(a);
+                transaction.commit();
     }
 }
