@@ -13,7 +13,7 @@ public class Main {
 //        Alien a = new Alien();
 //       a.setAid(103);
 //       a.setAname("tharun");
-//       a.setAtech("Electronics");
+//       a.setAtech("Gen AI");
 
 //        Configuration config = new Configuration();
 //        config.addAnnotatedClass(com.deepan.Alien.class);
@@ -28,9 +28,12 @@ public class Main {
 
 
         Session session = factory.openSession();
-//        Transaction transaction = session.beginTransaction();
-               Alien a1= session.find(Alien.class,102);
-                System.out.println(a1);
-              //transaction.commit();
+      Transaction transaction = session.beginTransaction();
+      Alien a = session.find(Alien.class,102);
+              session.remove(a);
+
+              transaction.commit();
+              session.close();
+              factory.close();
     }
 }
